@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تقرير تحليل وتطوير موقع إقناع العقارية | Eqnaa Digital Transformation</title>
+<meta name="description" content="تقرير شامل لتحليل موقع شركة إقناع العقارية مع خطة تطوير متكاملة تشمل SEO والذكاء الاصطناعي والتواصل الاجتماعي">
+<style>
+/* ===== CSS RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary: #005884;
+  --primary-light: #40C7F4;
+  --primary-dark: #003d5c;
+  --accent: #00BCD4;
+  --success: #27ae60;
+  --warning: #f39c12;
+  --danger: #e74c3c;
+  --danger-light: #fdecea;
+  --warning-light: #fef9e7;
+  --success-light: #eafaf1;
+  --info-light: #ebf5fb;
+  --bg: #f8fafb;
+  --card-bg: #ffffff;
+  --text: #2c3e50;
+  --text-light: #7f8c8d;
+  --border: #e8edf0;
+  --gradient-primary: linear-gradient(135deg, #005884 0%, #00BCD4 100%);
+  --gradient-dark: linear-gradient(135deg, #003d5c 0%, #005884 100%);
+  --shadow: 0 4px 24px rgba(0,88,132,0.08);
+  --shadow-lg: 0 12px 48px rgba(0,88,132,0.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.3; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); }
+p { margin-bottom: 1rem; }
+
+/* ===== LAYOUT ===== */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+section {
+  padding: 60px 0;
+  position: relative;
+}
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding: 12px 0;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.nav-logo {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 4px 0;
+}
+
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  background: var(--info-light);
+  color: var(--primary);
+}
+
+/* ===== HERO / COVER ===== */
+.hero {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 80px 0 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(64,199,244,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 8px 24px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.hero h1 { margin-bottom: 16px; position: relative; }
+
+.hero p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.hero-meta span { display: flex; align-items: center; gap: 6px; }
+
+/* ===== SCORE CARDS ===== */
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.score-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 24px 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.score-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+.score-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.score-value.critical { color: var(--danger); }
+.score-value.warning { color: var(--warning); }
+.score-value.good { color: var(--success); }
+
+.score-label {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+/* ===== SECTION HEADER ===== */
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-tag {
+  display: inline-block;
+  background: var(--gradient-primary);
+  color: white;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-header h2 { color: var(--primary-dark); margin-bottom: 8px; }
+.section-header p { color: var(--text-light); max-width: 550px; margin: 0 auto; font-size: 0.95rem; }
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid var(--border);
+}
+
+.card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+
+.card-icon.danger { background: var(--danger-light); }
+.card-icon.warning { background: var(--warning-light); }
+.card-icon.success { background: var(--success-light); }
+.card-icon.info { background: var(--info-light); }
+
+.card h3 { margin-bottom: 8px; font-size: 1.1rem; }
+.card p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 0; }
+
+/* ===== ISSUE LIST ===== */
+.issue-list { display: grid; gap: 16px; }
+
+.issue-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--card-bg);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  border-right: 4px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.issue-item:hover { transform: translateX(4px); }
+.issue-item.critical { border-right-color: var(--danger); }
+.issue-item.warning { border-right-color: var(--warning); }
+.issue-item.info { border-right-color: var(--accent); }
+
+.issue-number {
+  min-width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.critical .issue-number { background: var(--danger); }
+.warning .issue-number { background: var(--warning); }
+.info .issue-number { background: var(--accent); }
+
+.issue-content h4 { font-size: 1rem; margin-bottom: 4px; }
+.issue-content p { font-size: 0.85rem; color: var(--text-light); margin-bottom: 0; }
+
+.issue-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.tag-critical { background: var(--danger-light); color: var(--danger); }
+.tag-warning { background: var(--warning-light); color: var(--warning); }
+.tag-info { background: var(--info-light); color: var(--accent); }
+
+/* ===== PHASES / TIMELINE ===== */
+.timeline { position: relative; padding-right: 40px; }
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  right: 15px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--danger), var(--warning), var(--accent), var(--success));
+  border-radius: 3px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-right: 24px;
+}
+
+.timeline-dot {
+  position: absolute;
+  right: -34px;
+  top: 6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 4px solid var(--card-bg);
+  box-shadow: 0 0 0 3px var(--primary);
+  background: var(--primary);
+}
+
+.timeline-item:nth-child(1) .timeline-dot { background: var(--danger); box-shadow: 0 0 0 3px var(--danger); }
+.timeline-item:nth-child(2) .timeline-dot { background: var(--warning); box-shadow: 0 0 0 3px var(--warning); }
+.timeline-item:nth-child(3) .timeline-dot { background: var(--accent); box-shadow: 0 0 0 3px var(--accent); }
+.timeline-item:nth-child(4) .timeline-dot { background: var(--success); box-shadow: 0 0 0 3px var(--success); }
+
+.timeline-phase {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.timeline-item:nth-child(1) .timeline-phase { color: var(--danger); }
+.timeline-item:nth-child(2) .timeline-phase { color: var(--warning); }
+.timeline-item:nth-child(3) .timeline-phase { color: var(--accent); }
+.timeline-item:nth-child(4) .timeline-phase { color: var(--success); }
+
+.timeline-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.timeline-card h3 { margin-bottom: 12px; }
+
+.task-list { list-style: none; }
+
+.task-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.task-list li:last-child { border-bottom: none; }
+
+.task-check {
+  color: var(--success);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ===== STRATEGY GRID ===== */
+.strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.strategy-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.strategy-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+
+.strategy-header {
+  padding: 20px 24px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.strategy-header.seo { background: var(--gradient-primary); }
+.strategy-header.ai { background: linear-gradient(135deg, #6C3483 0%, #A569BD 100%); }
+.strategy-header.social { background: linear-gradient(135deg, #E74C3C 0%, #F39C12 100%); }
+.strategy-header.content { background: linear-gradient(135deg, #27AE60 0%, #2ECC71 100%); }
+
+.strategy-header h3 { margin: 0; font-size: 1.15rem; }
+
+.strategy-body { padding: 24px; }
+
+.strategy-body ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.strategy-body li {
+  font-size: 0.9rem;
+  padding-right: 24px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.strategy-body li::before {
+  content: '\2713';
+  position: absolute;
+  right: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* ===== SOCIAL PLATFORMS ===== */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.social-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.social-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: white;
+}
+
+.social-card:nth-child(1) .social-icon { background: linear-gradient(135deg, #833AB4, #E1306C, #F77737); }
+.social-card:nth-child(2) .social-icon { background: #000; }
+.social-card:nth-child(3) .social-icon { background: #1DA1F2; }
+.social-card:nth-child(4) .social-icon { background: #FFFC00; color: #000; }
+.social-card:nth-child(5) .social-icon { background: #0077B5; }
+.social-card:nth-child(6) .social-icon { background: #25D366; }
+
+.social-card h4 { font-size: 0.95rem; margin-bottom: 6px; }
+.social-card p { font-size: 0.8rem; color: var(--text-light); margin-bottom: 0; }
+
+/* ===== BLOG PLAN ===== */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.blog-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--accent);
+  transition: var(--transition);
+}
+
+.blog-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+.blog-category {
+  display: inline-block;
+  background: var(--info-light);
+  color: var(--primary);
+  padding: 2px 12px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.blog-card h4 { font-size: 0.95rem; margin-bottom: 8px; }
+.blog-card p { font-size: 0.82rem; color: var(--text-light); margin-bottom: 8px; }
+
+.blog-freq {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ===== KPI TABLE ===== */
+.kpi-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin: 24px 0;
+}
+
+.kpi-table th {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 14px 20px;
+  text-align: right;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.kpi-table td {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  background: var(--card-bg);
+}
+
+.kpi-table tr:last-child td { border-bottom: none; }
+.kpi-table tr:hover td { background: var(--info-light); }
+
+/* ===== CTA ===== */
+.cta-section {
+  background: var(--gradient-dark);
+  color: white;
+  text-align: center;
+  padding: 60px 0;
+  border-radius: 0;
+}
+
+.cta-section h2 { margin-bottom: 16px; }
+.cta-section p { opacity: 0.9; max-width: 500px; margin: 0 auto 32px; }
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: white;
+  color: var(--primary-dark);
+}
+
+.btn-primary:hover { background: var(--primary-light); color: white; transform: scale(1.05); }
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+
+.btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+/* ===== FEATURES GOOD ===== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.feature-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  background: var(--success-light);
+  border-radius: var(--radius-sm);
+}
+
+.feature-icon { color: var(--success); font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+.feature-item h4 { font-size: 0.9rem; margin-bottom: 2px; }
+.feature-item p { font-size: 0.8rem; color: var(--text-light); margin-bottom: 0; }
+
+/* ===== COMPARISON TABLE ===== */
+.compare-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.compare-card {
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.compare-card.before {
+  background: var(--danger-light);
+  border: 2px solid #f5c6cb;
+}
+
+.compare-card.after {
+  background: var(--success-light);
+  border: 2px solid #c3e6cb;
+}
+
+.compare-card h3 {
+  font-size: 1rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.compare-card ul { list-style: none; display: grid; gap: 8px; }
+.compare-card li { font-size: 0.88rem; padding-right: 20px; position: relative; }
+.compare-card.before li::before { content: '\2717'; position: absolute; right: 0; color: var(--danger); font-weight: 700; }
+.compare-card.after li::before { content: '\2713'; position: absolute; right: 0; color: var(--success); font-weight: 700; }
+
+/* ===== FOOTER ===== */
+.report-footer {
+  background: var(--primary-dark);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 32px 0;
+  font-size: 0.85rem;
+}
+
+.report-footer strong { color: white; }
+
+/* ===== PRINT ===== */
+@media print {
+  .nav { display: none; }
+  body { font-size: 12pt; }
+  .card, .strategy-card, .timeline-card { break-inside: avoid; }
+  section { padding: 24px 0; }
+  .hero { padding: 40px 0; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  section { padding: 40px 0; }
+  .container { padding: 0 16px; }
+  .hero { padding: 60px 0 40px; }
+  .hero-meta { gap: 16px; }
+  .score-grid { grid-template-columns: repeat(2, 1fr); }
+  .compare-row { grid-template-columns: 1fr; }
+  .strategy-grid { grid-template-columns: 1fr; }
+  .social-grid { grid-template-columns: repeat(2, 1fr); }
+  .blog-grid { grid-template-columns: 1fr; }
+  .nav-links { gap: 2px; }
+  .nav-links a { font-size: 0.7rem; padding: 5px 8px; }
+  .timeline { padding-right: 32px; }
+  .timeline::before { right: 11px; }
+  .timeline-dot { right: -28px; width: 20px; height: 20px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .kpi-table { font-size: 0.8rem; }
+  .kpi-table th, .kpi-table td { padding: 10px 12px; }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate { animation: fadeInUp 0.6s ease forwards; }
+
+/* ===== DIVIDER ===== */
+.divider {
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+/* ===== STAT HIGHLIGHT ===== */
+.stat-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--danger-light);
+  color: var(--danger);
+  padding: 4px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-bar {
+  height: 8px;
+  background: var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 1s ease;
+}
+
+.progress-fill.low { background: var(--danger); }
+.progress-fill.mid { background: var(--warning); }
+.progress-fill.high { background: var(--success); }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <div class="nav-logo">EQNAA | تقرير التطوير</div>
+    <div class="nav-links">
+      <a href="#summary">الملخص</a>
+      <a href="#analysis">التحليل</a>
+      <a href="#issues">المشاكل</a>
+      <a href="#plan">خطة التطوير</a>
+      <a href="#seo">SEO</a>
+      <a href="#ai">الذكاء الاصطناعي</a>
+      <a href="#social">التواصل</a>
+      <a href="#blog">المدونة</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO / COVER ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">تقرير تحليل وتطوير شامل</div>
+    <h1>شركة إقناع العقارية</h1>
+    <p>تقرير فني متكامل يكشف الوضع الحالي للموقع الإلكتروني ويقدم خارطة طريق احترافية للتطوير والنمو الرقمي</p>
+    <div class="hero-meta">
+      <span>eqnaa.com</span>
+      <span>|</span>
+      <span>6 أبريل 2026</span>
+      <span>|</span>
+      <span>النسخة 1.0</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXECUTIVE SUMMARY ===== -->
+<section id="summary">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">ملخص تنفيذي</div>
+      <h2>نظرة سريعة على الوضع الحالي</h2>
+      <p>التقييم الشامل لموقع eqnaa.com يكشف عن فرص تطوير ضخمة يمكن أن تحول الموقع إلى أداة بيع فعالة</p>
+    </div>
+
+    <div class="score-grid">
+      <div class="score-card">
+        <span class="score-value critical">2/10</span>
+        <span class="score-label">تحسين محركات البحث</span>
+        <div class="progress-bar"><div class="progress-fill low" style="width:20%"></div></div>
+      </div>
+      <div class="score-card">
+        <span class="score-value critical">3/10</span>
+        <span class="score-label">الأداء والسرعة</span>
+        <div class="progress-bar"><div class="progress-fill low" style="width:30%"></div></div>
+      </div>
+      <div class="score-card">
+        <span class="score-value critical">3/10</span>
+        <span class="score-label">توافق الجوال</span>
+        <div class="progress-bar"><div class="progress-fill low" style="width:30%"></div></div>
+      </div>
+      <div class="score-card">
+        <span class="score-value warning">5/10</span>
+        <span class="score-label">جودة المحتوى</span>
+        <div class="progress-bar"><div class="progress-fill mid" style="width:50%"></div></div>
+      </div>
+      <div class="score-card">
+        <span class="score-value warning">6/10</span>
+        <span class="score-label">التصميم البصري</span>
+        <div class="progress-bar"><div class="progress-fill mid" style="width:60%"></div></div>
+      </div>
+      <div class="score-card">
+        <span class="score-value warning">4/10</span>
+        <span class="score-label">تجربة المستخدم</span>
+        <div class="progress-bar"><div class="progress-fill mid" style="width:40%"></div></div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:24px;">
+      <div class="stat-highlight">التقييم العام: 3.8 من 10 - يحتاج تحسينات جوهرية</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CURRENT ANALYSIS - POSITIVES ===== -->
+<section id="analysis" style="background: white;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">التحليل الحالي</div>
+      <h2>المميزات الموجودة في الموقع</h2>
+      <p>الموقع يمتلك بعض الأساسيات الجيدة التي يمكن البناء عليها</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">&#10003;</div>
+        <div>
+          <h4>هوية بصرية متناسقة</h4>
+          <p>شعار واضح وألوان موحدة</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">&#10003;</div>
+        <div>
+          <h4>أزرار تواصل سريع</h4>
+          <p>واتساب + اتصال هاتفي عائمة</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">&#10003;</div>
+        <div>
+          <h4>شهادة SSL نشطة</h4>
+          <p>الموقع آمن ومشفر (HTTPS)</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">&#10003;</div>
+        <div>
+          <h4>بيانات منظمة Schema</h4>
+          <p>Organization + WebPage markup</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">&#10003;</div>
+        <div>
+          <h4>نموذج اتصال</h4>
+          <p>متوفر مع حقول أساسية</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">&#10003;</div>
+        <div>
+          <h4>نشرة إخبارية</h4>
+          <p>نموذج اشتراك Newsletter</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">&#10003;</div>
+        <div>
+          <h4>محتوى "من نحن"</h4>
+          <p>رؤية ورسالة وقيم واضحة</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">&#10003;</div>
+        <div>
+          <h4>تتبع Google Tag</h4>
+          <p>GTM + Facebook Pixel مفعلة</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ISSUES ===== -->
+<section id="issues">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">المشاكل المكتشفة</div>
+      <h2>العيوب التي تحتاج إصلاح فوري</h2>
+      <p>12 مشكلة تم اكتشافها مرتبة حسب الخطورة والأولوية</p>
+    </div>
+
+    <div class="issue-list">
+
+      <div class="issue-item critical">
+        <div class="issue-number">1</div>
+        <div class="issue-content">
+          <h4>الموقع محجوب تماما عن Google</h4>
+          <p>وسم <code>meta robots = "noindex, nofollow"</code> يمنع جميع محركات البحث من فهرسة الموقع. هذا يعني أن الموقع غير موجود نهائيا في نتائج البحث ولا يراه أي عميل يبحث عن عقارات في جدة. كل يوم يمر بدون إصلاح هذا = عملاء مفقودين.</p>
+          <span class="issue-tag tag-critical">حرج - إصلاح فوري</span>
+        </div>
+      </div>
+
+      <div class="issue-item critical">
+        <div class="issue-number">2</div>
+        <div class="issue-content">
+          <h4>فراغات بيضاء ضخمة في الصفحة الرئيسية</h4>
+          <p>بعد قسم الهيرو تظهر مساحات بيضاء فارغة تملأ الشاشة. المحتوى موجود في الكود لكنه لا يظهر بصريا بسبب خلل في الأنيميشن. الزائر يظن أن الموقع فارغ ويغادر فورا.</p>
+          <span class="issue-tag tag-critical">حرج - إصلاح فوري</span>
+        </div>
+      </div>
+
+      <div class="issue-item critical">
+        <div class="issue-number">3</div>
+        <div class="issue-content">
+          <h4>النسخة الإنجليزية معطلة بالكامل</h4>
+          <p>زر "ENG" ليس رابطا فعليا، وجميع الصفحات الإنجليزية (/en/, /about-us/) ترجع خطأ 404. هذا يعطي انطباعا غير احترافي ويخسر العملاء الأجانب والمستثمرين.</p>
+          <span class="issue-tag tag-critical">حرج - إصلاح فوري</span>
+        </div>
+      </div>
+
+      <div class="issue-item critical">
+        <div class="issue-number">4</div>
+        <div class="issue-content">
+          <h4>أخطاء JavaScript في الكونسول</h4>
+          <p>خطأ <code>SVGInjector is not defined</code> يتكرر 3 مرات من إضافة themesflat. يؤثر على عرض الشعار وعناصر الصفحة ويسبب خلل في الأنيميشن.</p>
+          <span class="issue-tag tag-critical">حرج - إصلاح فوري</span>
+        </div>
+      </div>
+
+      <div class="issue-item critical">
+        <div class="issue-number">5</div>
+        <div class="issue-content">
+          <h4>لا يوجد عنوان H1 في أي صفحة</h4>
+          <p>كل العناوين H2 و H3 فقط. غياب H1 يضر بشكل مباشر بترتيب الموقع في محركات البحث ويفقد الصفحة هويتها الدلالية.</p>
+          <span class="issue-tag tag-critical">حرج</span>
+        </div>
+      </div>
+
+      <div class="issue-item warning">
+        <div class="issue-number">6</div>
+        <div class="issue-content">
+          <h4>أداء ثقيل جدا - 45 ملف CSS + 47 ملف JS</h4>
+          <p>الموقع يحمل 140 مورد (resource) وهو رقم ضخم جدا. المعيار المثالي 30-50 مورد فقط. الإضافات الزائدة تبطئ الموقع بشكل كبير خصوصا على الجوال.</p>
+          <span class="issue-tag tag-warning">متوسط</span>
+        </div>
+      </div>
+
+      <div class="issue-item warning">
+        <div class="issue-number">7</div>
+        <div class="issue-content">
+          <h4>الموقع غير متجاوب مع الجوال</h4>
+          <p>قائمة التنقل لا تتحول إلى hamburger menu على شاشة الجوال. القائمة تبقى أفقية مما يسبب تداخل العناصر. زر اللغة يختفي كليا على الجوال.</p>
+          <span class="issue-tag tag-warning">متوسط</span>
+        </div>
+      </div>
+
+      <div class="issue-item warning">
+        <div class="issue-number">8</div>
+        <div class="issue-content">
+          <h4>8 من 10 صور بدون نص بديل (Alt Text)</h4>
+          <p>80% من الصور بدون وصف بديل. يؤثر سلبا على SEO ويجعل الموقع غير متاح لذوي الاحتياجات الخاصة.</p>
+          <span class="issue-tag tag-warning">متوسط</span>
+        </div>
+      </div>
+
+      <div class="issue-item warning">
+        <div class="issue-number">9</div>
+        <div class="issue-content">
+          <h4>صفحات مشاريع ناقصة المحتوى</h4>
+          <p>مشروعان من أصل 5 بدون وصف. لا توجد أسعار أو مخططات أو خرائط مواقع تفاعلية لأي مشروع.</p>
+          <span class="issue-tag tag-warning">متوسط</span>
+        </div>
+      </div>
+
+      <div class="issue-item info">
+        <div class="issue-number">10</div>
+        <div class="issue-content">
+          <h4>صفحة الاتصال بدون خريطة تفاعلية</h4>
+          <p>لا توجد خريطة Google Maps ولا ساعات عمل محددة. العميل لا يستطيع تصور موقع المكتب بسهولة.</p>
+          <span class="issue-tag tag-info">تحسين</span>
+        </div>
+      </div>
+
+      <div class="issue-item info">
+        <div class="issue-number">11</div>
+        <div class="issue-content">
+          <h4>لا توجد مدونة أو صفحة مقالات</h4>
+          <p>غياب المحتوى التسويقي يفقد الموقع فرص جذب زوار عضويين من محركات البحث. المدونة أساسية لاستراتيجية SEO.</p>
+          <span class="issue-tag tag-info">تحسين</span>
+        </div>
+      </div>
+
+      <div class="issue-item info">
+        <div class="issue-number">12</div>
+        <div class="issue-content">
+          <h4>غياب أدوات التحويل الذكية</h4>
+          <p>لا يوجد شات بوت ذكي، أو حاسبة تمويل، أو نظام حجز مواعيد متكامل، أو نظام CRM لإدارة العملاء المحتملين.</p>
+          <span class="issue-tag tag-info">تحسين</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== BEFORE / AFTER ===== -->
+<section style="background: white;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">التحول المطلوب</div>
+      <h2>الفرق بين الآن وبعد التطوير</h2>
+    </div>
+
+    <div class="compare-row">
+      <div class="compare-card before">
+        <h3>الوضع الحالي</h3>
+        <ul>
+          <li>محجوب عن Google بالكامل</li>
+          <li>صفحات فارغة بصريا</li>
+          <li>النسخة الإنجليزية معطلة 404</li>
+          <li>45 ملف CSS + 47 JS = بطء</li>
+          <li>لا يعمل على الجوال بشكل سليم</li>
+          <li>لا مدونة ولا محتوى SEO</li>
+          <li>لا شات بوت ولا AI</li>
+          <li>لا نظام إدارة عملاء CRM</li>
+        </ul>
+      </div>
+      <div class="compare-card after">
+        <h3>بعد التطوير</h3>
+        <ul>
+          <li>مفهرس ومتصدر نتائج البحث</li>
+          <li>تصميم سلس وجذاب بأنيميشن احترافي</li>
+          <li>نسخة إنجليزية كاملة واحترافية</li>
+          <li>سرعة تحميل أقل من 3 ثوان</li>
+          <li>متجاوب 100% مع جميع الأجهزة</li>
+          <li>مدونة نشطة تجذب آلاف الزوار</li>
+          <li>شات بوت ذكي يرد 24/7</li>
+          <li>نظام CRM متكامل لتتبع العملاء</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEVELOPMENT PLAN - 4 PHASES ===== -->
+<section id="plan">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">خطة التطوير</div>
+      <h2>4 مراحل للوصول إلى موقع استثنائي</h2>
+      <p>خارطة طريق واضحة ومنظمة تحول الموقع من حالته الحالية إلى منصة بيع رقمية متكاملة</p>
+    </div>
+
+    <div class="timeline">
+
+      <!-- Phase 1 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">المرحلة الأولى - الأسبوع 1-2</div>
+        <div class="timeline-card">
+          <h3>الإصلاحات الحرجة الفورية</h3>
+          <p style="color:var(--text-light); font-size:0.9rem; margin-bottom:16px;">إصلاح المشاكل التي تمنع الموقع من العمل بشكل أساسي</p>
+          <ul class="task-list">
+            <li><span class="task-check">&#10003;</span> إزالة وسم noindex/nofollow وفتح الموقع لمحركات البحث</li>
+            <li><span class="task-check">&#10003;</span> إصلاح الفراغات البيضاء في الصفحة الرئيسية (خلل CSS/Animation)</li>
+            <li><span class="task-check">&#10003;</span> إصلاح خطأ SVGInjector بتحديث أو استبدال إضافة themesflat</li>
+            <li><span class="task-check">&#10003;</span> إضافة عنوان H1 مناسب في كل صفحة</li>
+            <li><span class="task-check">&#10003;</span> إصلاح أو إخفاء زر ENG حتى تجهز النسخة الإنجليزية</li>
+            <li><span class="task-check">&#10003;</span> إضافة alt text لجميع الصور</li>
+            <li><span class="task-check">&#10003;</span> إنشاء ملف Sitemap.xml وتسجيله في Google Search Console</li>
+            <li><span class="task-check">&#10003;</span> إعداد Google Analytics 4 بشكل صحيح</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">المرحلة الثانية - الأسبوع 3-5</div>
+        <div class="timeline-card">
+          <h3>تحسين الأداء وتجربة المستخدم</h3>
+          <p style="color:var(--text-light); font-size:0.9rem; margin-bottom:16px;">تسريع الموقع وجعله يعمل بسلاسة على جميع الأجهزة</p>
+          <ul class="task-list">
+            <li><span class="task-check">&#10003;</span> تفعيل قائمة hamburger menu للجوال مع تصميم متجاوب كامل</li>
+            <li><span class="task-check">&#10003;</span> إزالة الإضافات غير الضرورية (تقليل من 45 CSS إلى 8-10)</li>
+            <li><span class="task-check">&#10003;</span> ضغط وتحسين الصور بصيغة WebP</li>
+            <li><span class="task-check">&#10003;</span> تفعيل CDN لتسريع التحميل</li>
+            <li><span class="task-check">&#10003;</span> تفعيل التخزين المؤقت (Caching) بشكل صحيح</li>
+            <li><span class="task-check">&#10003;</span> إكمال أوصاف المشاريع الناقصة + إضافة صور احترافية</li>
+            <li><span class="task-check">&#10003;</span> إضافة خريطة Google Maps تفاعلية في صفحة الاتصال</li>
+            <li><span class="task-check">&#10003;</span> إضافة ساعات العمل ومعلومات الوصول</li>
+            <li><span class="task-check">&#10003;</span> بناء النسخة الإنجليزية الكاملة باحترافية</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">المرحلة الثالثة - الأسبوع 6-10</div>
+        <div class="timeline-card">
+          <h3>الإضافات الذكية والتحول الرقمي</h3>
+          <p style="color:var(--text-light); font-size:0.9rem; margin-bottom:16px;">تحويل الموقع من كتيب رقمي إلى آلة مبيعات ذكية</p>
+          <ul class="task-list">
+            <li><span class="task-check">&#10003;</span> إطلاق شات بوت ذكي بالذكاء الاصطناعي (WhatsApp + الموقع)</li>
+            <li><span class="task-check">&#10003;</span> إنشاء صفحة المدونة/المقالات مع أول 10 مقالات SEO</li>
+            <li><span class="task-check">&#10003;</span> إضافة حاسبة تمويل عقاري تفاعلية</li>
+            <li><span class="task-check">&#10003;</span> نظام حجز مواعيد متكامل مع التقويم</li>
+            <li><span class="task-check">&#10003;</span> إضافة جولات افتراضية 360 للمشاريع</li>
+            <li><span class="task-check">&#10003;</span> صفحة FAQ (أسئلة شائعة) مع Schema markup</li>
+            <li><span class="task-check">&#10003;</span> قسم شهادات العملاء (Testimonials)</li>
+            <li><span class="task-check">&#10003;</span> ربط نظام CRM لإدارة العملاء المحتملين</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">المرحلة الرابعة - مستمرة</div>
+        <div class="timeline-card">
+          <h3>التسويق والنمو المستدام</h3>
+          <p style="color:var(--text-light); font-size:0.9rem; margin-bottom:16px;">بناء حضور رقمي قوي ومستدام يجلب عملاء بشكل مستمر</p>
+          <ul class="task-list">
+            <li><span class="task-check">&#10003;</span> إطلاق استراتيجية محتوى التواصل الاجتماعي</li>
+            <li><span class="task-check">&#10003;</span> نشر 4 مقالات SEO شهريا على المدونة</li>
+            <li><span class="task-check">&#10003;</span> حملات إعلانية ذكية Google Ads + Social Media</li>
+            <li><span class="task-check">&#10003;</span> تقارير أداء شهرية مع تحليل البيانات</li>
+            <li><span class="task-check">&#10003;</span> تحسين مستمر بناء على بيانات المستخدمين</li>
+            <li><span class="task-check">&#10003;</span> بناء Backlinks عالية الجودة</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SEO STRATEGY ===== -->
+<section id="seo" style="background: white;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">استراتيجية SEO</div>
+      <h2>خطة تحسين محركات البحث الشاملة</h2>
+      <p>خارطة طريق لجعل "إقناع العقارية" تتصدر نتائج البحث في جدة والمملكة</p>
+    </div>
+
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <div class="strategy-header seo">
+          <span style="font-size:1.5rem;">&#128269;</span>
+          <h3>SEO التقني (Technical)</h3>
+        </div>
+        <div class="strategy-body">
+          <ul>
+            <li>إزالة noindex/nofollow فورا</li>
+            <li>إنشاء sitemap.xml ديناميكي</li>
+            <li>تحسين ملف robots.txt</li>
+            <li>إصلاح هيكل العناوين H1-H6</li>
+            <li>تسريع الموقع (Core Web Vitals)</li>
+            <li>تطبيق Schema markup لكل المشاريع</li>
+            <li>إصلاح الروابط المكسورة (404)</li>
+            <li>تفعيل HREFLANG للعربي والإنجليزي</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="strategy-card">
+        <div class="strategy-header seo">
+          <span style="font-size:1.5rem;">&#128221;</span>
+          <h3>SEO المحتوى (On-Page)</h3>
+        </div>
+        <div class="strategy-body">
+          <ul>
+            <li>بحث كلمات مفتاحية: شقق جدة، عقارات الفيحاء</li>
+            <li>تحسين العناوين والأوصاف لكل صفحة</li>
+            <li>إضافة alt text وصفي لكل صورة</li>
+            <li>إنشاء صفحات هبوط لكل مشروع محسنة</li>
+            <li>محتوى طويل (1500+ كلمة) لصفحات المشاريع</li>
+            <li>ربط داخلي ذكي بين الصفحات</li>
+            <li>إنشاء صفحة FAQ مع Schema</li>
+            <li>تحسين عناوين URL (بالعربي والإنجليزي)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="strategy-card">
+        <div class="strategy-header seo">
+          <span style="font-size:1.5rem;">&#127760;</span>
+          <h3>SEO الخارجي (Off-Page)</h3>
+        </div>
+        <div class="strategy-body">
+          <ul>
+            <li>تسجيل الموقع في Google Business Profile</li>
+            <li>إدراج في أدلة العقارات السعودية</li>
+            <li>بناء Backlinks من مواقع موثوقة</li>
+            <li>نشر مقالات ضيف في مواقع عقارية</li>
+            <li>تسجيل في دليل الغرفة التجارية</li>
+            <li>مراجعات العملاء على Google</li>
+            <li>تسجيل في Aqar.fm و Bayut</li>
+            <li>بيانات صحفية للمشاريع الجديدة</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPI Table -->
+    <h3 style="margin: 40px 0 16px; text-align:center;">الكلمات المفتاحية المستهدفة</h3>
+    <table class="kpi-table">
+      <thead>
+        <tr>
+          <th>الكلمة المفتاحية</th>
+          <th>حجم البحث الشهري</th>
+          <th>المنافسة</th>
+          <th>الأولوية</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>شقق للبيع في جدة</td><td>12,000+</td><td>عالية</td><td style="color:var(--danger);font-weight:700;">قصوى</td></tr>
+        <tr><td>شركات عقارية في جدة</td><td>5,400+</td><td>متوسطة</td><td style="color:var(--danger);font-weight:700;">قصوى</td></tr>
+        <tr><td>عقارات حي الفيحاء جدة</td><td>1,800+</td><td>منخفضة</td><td style="color:var(--warning);font-weight:700;">عالية</td></tr>
+        <tr><td>شقق تمليك جدة</td><td>8,100+</td><td>عالية</td><td style="color:var(--warning);font-weight:700;">عالية</td></tr>
+        <tr><td>مشاريع سكنية جدة 2026</td><td>2,400+</td><td>منخفضة</td><td style="color:var(--accent);font-weight:700;">متوسطة</td></tr>
+        <tr><td>تمويل عقاري جدة</td><td>6,600+</td><td>عالية</td><td style="color:var(--accent);font-weight:700;">متوسطة</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== AI STRATEGY ===== -->
+<section id="ai">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">الذكاء الاصطناعي</div>
+      <h2>تحويل إقناع إلى شركة عقارية ذكية</h2>
+      <p>الذكاء الاصطناعي ليس رفاهية - هو ميزة تنافسية تضع إقناع في صدارة السوق العقاري</p>
+    </div>
+
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <div class="strategy-header ai">
+          <span style="font-size:1.5rem;">&#129302;</span>
+          <h3>شات بوت ذكي (AI Chatbot)</h3>
+        </div>
+        <div class="strategy-body">
+          <ul>
+            <li>رد فوري 24/7 على استفسارات العملاء</li>
+            <li>يفهم العربي والإنجليزي بطلاقة</li>
+            <li>يعرف كل تفاصيل المشاريع والأسعار</li>
+            <li>يحجز مواعيد المعاينة تلقائيا</li>
+            <li>يعمل على واتساب + الموقع معا</li>
+            <li>يحول العميل لمستشار بشري عند الحاجة</li>
+            <li>يجمع بيانات العملاء المحتملين تلقائيا</li>
+            <li>يرسل متابعات ذكية بعد أول تواصل</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="strategy-card">
+        <div class="strategy-header ai">
+          <span style="font-size:1.5rem;">&#128202;</span>
+          <h3>تحليل البيانات الذكي</h3>
+        </div>
+        <div class="strategy-body">
+          <ul>
+            <li>تتبع سلوك الزوار وتحليل اهتماماتهم</li>
+            <li>خرائط حرارية (Heatmaps) لفهم التفاعل</li>
+            <li>توقع العملاء الأكثر احتمالا للشراء</li>
+            <li>تحليل أداء كل مشروع ومقارنته</li>
+            <li>تقارير ذكية أسبوعية تلقائية</li>
+            <li>تنبيهات فورية عند اهتمام عميل جاد</li>
+            <li>تحليل مصادر الزوار والتحويلات</li>
+            <li>مقارنة أداء الحملات الإعلانية</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="strategy-card">
+        <div class="strategy-header ai">
+          <span style="font-size:1.5rem;">&#9889;</span>
+          <h3>أدوات ذكية للعملاء</h3>
+        </div>
+        <div class="strategy-body">
+          <ul>
+            <li>حاسبة تمويل عقاري ذكية بعدة بنوك</li>
+            <li>مقارنة وحدات تفاعلية بين المشاريع</li>
+            <li>توصيات مخصصة حسب ميزانية العميل</li>
+            <li>جولات افتراضية 360 للوحدات</li>
+            <li>إشعارات ذكية عند توفر وحدة مناسبة</li>
+            <li>تقدير قيمة العقار بالذكاء الاصطناعي</li>
+            <li>نظام تقييم ومراجعات ذكي</li>
+            <li>محرك بحث ذكي بمعالجة اللغة الطبيعية</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL MEDIA STRATEGY ===== -->
+<section id="social" style="background: white;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">التواصل الاجتماعي</div>
+      <h2>استراتيجية المنصات الرقمية</h2>
+      <p>خطة محتوى متكاملة تبني حضور إقناع الرقمي وتجذب العملاء من كل منصة</p>
+    </div>
+
+    <div class="social-grid">
+      <div class="social-card">
+        <div class="social-icon">IG</div>
+        <h4>Instagram</h4>
+        <p>صور مشاريع + Reels + Stories يومية + جولات افتراضية</p>
+      </div>
+      <div class="social-card">
+        <div class="social-icon">TT</div>
+        <h4>TikTok</h4>
+        <p>جولات سريعة + نصائح عقارية + خلف الكواليس + Trends</p>
+      </div>
+      <div class="social-card">
+        <div class="social-icon">X</div>
+        <h4>X (Twitter)</h4>
+        <p>أخبار السوق + إحصائيات + تحديثات المشاريع + threads</p>
+      </div>
+      <div class="social-card">
+        <div class="social-icon">SC</div>
+        <h4>Snapchat</h4>
+        <p>جولات حية للمشاريع + عروض حصرية + خلف الكواليس</p>
+      </div>
+      <div class="social-card">
+        <div class="social-icon">in</div>
+        <h4>LinkedIn</h4>
+        <p>محتوى مهني + شراكات + إنجازات الشركة + توظيف</p>
+      </div>
+      <div class="social-card">
+        <div class="social-icon">WA</div>
+        <h4>WhatsApp</h4>
+        <p>قوائم بث + كتالوج مشاريع + رد فوري بالـ AI</p>
+      </div>
+    </div>
+
+    <!-- Content Calendar -->
+    <h3 style="margin: 40px 0 16px; text-align:center;">جدول المحتوى الأسبوعي المقترح</h3>
+    <table class="kpi-table">
+      <thead>
+        <tr>
+          <th>اليوم</th>
+          <th>المنصة</th>
+          <th>نوع المحتوى</th>
+          <th>الهدف</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>السبت</td><td>Instagram + TikTok</td><td>Reel جولة مشروع</td><td>تفاعل + وعي</td></tr>
+        <tr><td>الأحد</td><td>X + LinkedIn</td><td>إحصائية سوق عقاري</td><td>مصداقية + تثقيف</td></tr>
+        <tr><td>الاثنين</td><td>Instagram Stories</td><td>سؤال تفاعلي / استطلاع</td><td>تفاعل المتابعين</td></tr>
+        <tr><td>الثلاثاء</td><td>TikTok + Snap</td><td>نصيحة عقارية قصيرة</td><td>قيمة + متابعين</td></tr>
+        <tr><td>الأربعاء</td><td>الموقع + جميع المنصات</td><td>مقال مدونة جديد</td><td>SEO + محتوى</td></tr>
+        <tr><td>الخميس</td><td>Instagram + WhatsApp</td><td>عرض خاص أو تحديث مشروع</td><td>مبيعات</td></tr>
+        <tr><td>الجمعة</td><td>جميع المنصات</td><td>قصة نجاح عميل / شهادة</td><td>ثقة + تحويل</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== BLOG & CONTENT STRATEGY ===== -->
+<section id="blog">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">المدونة والمقالات</div>
+      <h2>استراتيجية المحتوى - المدونة العقارية</h2>
+      <p>المدونة ستكون المحرك الأساسي لجذب الزوار من Google وبناء الثقة مع العملاء المحتملين</p>
+    </div>
+
+    <div class="blog-grid">
+      <div class="blog-card">
+        <span class="blog-category">أدلة شاملة</span>
+        <h4>دليل شراء شقة في جدة 2026</h4>
+        <p>دليل شامل يغطي كل ما يحتاجه المشتري من الخطوة الأولى حتى استلام المفتاح</p>
+        <span class="blog-freq">مقال واحد شهريا</span>
+      </div>
+      <div class="blog-card">
+        <span class="blog-category">تحليلات السوق</span>
+        <h4>أسعار العقارات في أحياء جدة</h4>
+        <p>تحليل أسبوعي لتحركات السوق والأسعار في مختلف أحياء جدة</p>
+        <span class="blog-freq">مقال أسبوعي</span>
+      </div>
+      <div class="blog-card">
+        <span class="blog-category">نصائح عقارية</span>
+        <h4>كيف تختار الحي المناسب لعائلتك</h4>
+        <p>نصائح عملية تساعد العملاء في اتخاذ قرارات أفضل وبناء ثقتهم بإقناع</p>
+        <span class="blog-freq">مقالان أسبوعيا</span>
+      </div>
+      <div class="blog-card">
+        <span class="blog-category">أخبار المشاريع</span>
+        <h4>تحديثات التقدم في مشاريع إقناع</h4>
+        <p>تغطية حية لتقدم البناء مع صور ومعلومات تهم المشترين المحتملين</p>
+        <span class="blog-freq">عند كل تحديث</span>
+      </div>
+      <div class="blog-card">
+        <span class="blog-category">تمويل</span>
+        <h4>مقارنة خيارات التمويل العقاري</h4>
+        <p>مقارنة بين البنوك وشروط التمويل ونصائح للحصول على أفضل معدل</p>
+        <span class="blog-freq">شهريا مع التحديثات</span>
+      </div>
+      <div class="blog-card">
+        <span class="blog-category">رؤية 2030</span>
+        <h4>مستقبل العقار في ظل رؤية 2030</h4>
+        <p>تحليلات عن تأثير المشاريع الكبرى (نيوم، ذا لاين) على سوق جدة</p>
+        <span class="blog-freq">مقال شهري</span>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:32px; text-align:center; border-right:4px solid var(--success);">
+      <h3 style="margin-bottom:8px;">الهدف المتوقع من المدونة</h3>
+      <p style="margin-bottom:0;">الوصول إلى <strong style="color:var(--primary);">5,000+ زائر شهري عضوي</strong> خلال 6 أشهر من الإطلاق من خلال استهداف كلمات مفتاحية ذات حجم بحث عال ومنافسة منخفضة-متوسطة</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KPI & MEASUREMENT ===== -->
+<section style="background: white;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">مؤشرات الأداء</div>
+      <h2>كيف نقيس النجاح</h2>
+      <p>أهداف واضحة وقابلة للقياس لكل مرحلة من مراحل التطوير</p>
+    </div>
+
+    <table class="kpi-table">
+      <thead>
+        <tr>
+          <th>المؤشر</th>
+          <th>الوضع الحالي</th>
+          <th>بعد 3 أشهر</th>
+          <th>بعد 6 أشهر</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ظهور في Google</strong></td>
+          <td style="color:var(--danger);">معدوم (noindex)</td>
+          <td>مفهرس بالكامل</td>
+          <td style="color:var(--success);">صفحة 1 لـ 5+ كلمات</td>
+        </tr>
+        <tr>
+          <td><strong>زوار الموقع شهريا</strong></td>
+          <td style="color:var(--danger);">~0 عضوي</td>
+          <td>1,000+</td>
+          <td style="color:var(--success);">5,000+</td>
+        </tr>
+        <tr>
+          <td><strong>سرعة التحميل</strong></td>
+          <td style="color:var(--danger);">5+ ثوان</td>
+          <td>3 ثوان</td>
+          <td style="color:var(--success);">أقل من 2 ثانية</td>
+        </tr>
+        <tr>
+          <td><strong>تقييم PageSpeed</strong></td>
+          <td style="color:var(--danger);">~30/100</td>
+          <td>70/100</td>
+          <td style="color:var(--success);">90+/100</td>
+        </tr>
+        <tr>
+          <td><strong>عملاء محتملين (Leads)</strong></td>
+          <td style="color:var(--danger);">من الموقع: ~0</td>
+          <td>30+ شهريا</td>
+          <td style="color:var(--success);">100+ شهريا</td>
+        </tr>
+        <tr>
+          <td><strong>متابعي التواصل</strong></td>
+          <td>حالي</td>
+          <td>+50% نمو</td>
+          <td style="color:var(--success);">+200% نمو</td>
+        </tr>
+        <tr>
+          <td><strong>معدل التحويل</strong></td>
+          <td style="color:var(--danger);">غير محسوب</td>
+          <td>2%</td>
+          <td style="color:var(--success);">5%+</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="container">
+    <h2>مستعدون لتحويل إقناع إلى قوة رقمية؟</h2>
+    <p>كل يوم تأخير يعني عملاء يذهبون للمنافسين. الخطة جاهزة، والفريق مستعد للبدء فورا.</p>
+    <div class="cta-buttons">
+      <a href="tel:920012154" class="btn btn-primary">
+        &#128222; نبدأ الآن
+      </a>
+      <a href="https://wa.me/966507033481" class="btn btn-outline">
+        &#128172; تواصل واتساب
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="report-footer">
+  <div class="container">
+    <p>تقرير <strong>تحليل وتطوير موقع إقناع العقارية</strong> | أبريل 2026</p>
+    <p style="margin-top:8px; font-size:0.8rem;">تم إعداد هذا التقرير باستخدام تحليل تقني متقدم وأدوات ذكاء اصطناعي</p>
+  </div>
+</footer>
+
+</body>
+</html>
